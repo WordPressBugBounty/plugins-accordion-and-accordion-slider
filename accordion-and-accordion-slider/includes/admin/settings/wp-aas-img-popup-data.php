@@ -13,16 +13,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 $prefix = WP_AAS_META_PREFIX;
 
 // Taking some values
-$alt_text 			= get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
-$attachment_link 	= get_post_meta( $attachment_id, $prefix.'attachment_link', true );
+$alt_text			= get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
+$attachment_link	= get_post_meta( $attachment_id, $prefix.'attachment_link', true );
 ?>
 
 <div class="wp-aas-popup-title"><?php esc_html_e( 'Edit Image', 'accordion-and-accordion-slider' ); ?></div>
-	
+
 <div class="wp-aas-popup-body">
 
 	<form method="post" class="wp-aas-attachment-form">
-		
+
 		<?php if( ! empty( $attachment_post->guid )) { ?>
 		<div class="wp-aas-popup-img-preview">
 			<img src="<?php echo esc_url($attachment_post->guid); ?>" alt="" />
@@ -44,7 +44,7 @@ $attachment_link 	= get_post_meta( $attachment_id, $prefix.'attachment_link', tr
 					<input type="text" name="wp_aas_attachment_alt" value="<?php echo esc_attr($alt_text); ?>" class="large-text wp-aas-attachment-alt-text" id="wp-aas-attachment-alt-text" />
 					<span class="description"><?php esc_html_e('Enter image alternative text.', 'accordion-and-accordion-slider'); ?></span>
 				</td>
-			</tr>		
+			</tr>
 
 			<tr class="wp-aas-pro-feature">
 				<th>
@@ -52,7 +52,7 @@ $attachment_link 	= get_post_meta( $attachment_id, $prefix.'attachment_link', tr
 				</th>
 				<td>
 					<textarea name="wp_igsp_attachment_desc" class="large-text wp-aas-attachment-desc" id="wp-aas-attachment-desc" disabled=""></textarea>
-					<span class="description"><?php esc_html_e('Enter image caption.', 'accordion-and-accordion-slider'); ?></span><?php echo sprintf( __( ' Upgrade to <a href="%s" target="_blank">Premium Version (With Risk-Free 30 days money back guarantee)</a> to get best of this plugin with Annual or Lifetime bundle deal.', 'accordion-and-accordion-slider'), WP_AAS_PLUGIN_LINK_UNLOCK); ?>
+					<span class="description"><?php esc_html_e('Enter image caption.', 'accordion-and-accordion-slider'); ?></span><?php echo sprintf( __( ' Upgrade to <a href="%s" target="_blank">Premium Version</a> to get best of this plugin with Annual or Lifetime bundle deal.', 'accordion-and-accordion-slider'), WP_AAS_PLUGIN_LINK_UNLOCK); ?>
 				</td>
 			</tr>
 

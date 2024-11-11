@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Wp_Aas_Admin {
 
 	function __construct() {
-		
+
 		// Action to add metabox
 		add_action( 'add_meta_boxes', array( $this, 'wp_aas_post_sett_metabox' ));
 
 		// Action to save metabox
-		add_action( 'save_post', array( $this, 'wp_aas_save_metabox_value' ));		
+		add_action( 'save_post', array( $this, 'wp_aas_save_metabox_value' ));
 
 		// Admin Prior Processes
 		add_action( 'admin_init', array($this, 'wp_aas_admin_init_process') );
@@ -93,14 +93,14 @@ class Wp_Aas_Admin {
 	 * @since 1.0.0
 	 */
 	function wp_aas_post_sett_metabox() {
-		
+
 		// Getting all post types
 		$all_post_types = array(WP_AAS_POST_TYPE);
-	
+
 		add_meta_box( 'wp-aas-post-sett', __( 'Settings', 'accordion-and-accordion-slider' ), array($this, 'wp_aas_post_sett_mb_content'), $all_post_types, 'normal', 'high' );
-		
+
 		add_meta_box( 'wp-aas-post-slider-sett', __( 'Accordion Parameter', 'accordion-and-accordion-slider' ), array($this, 'wp_aas_post_slider_sett_mb_content'), $all_post_types, 'normal', 'default' );	
-		
+
 	}
 	
 	/**
@@ -122,7 +122,7 @@ class Wp_Aas_Admin {
 	function wp_aas_post_slider_sett_mb_content() {
 		include_once( WP_AAS_DIR .'/includes/admin/metabox/wp-aas-slider-parameter.php');
 	}
-	
+
 	/**
 	 * Function to save metabox values
 	 * 
@@ -146,7 +146,7 @@ class Wp_Aas_Admin {
 		$prefix = WP_AAS_META_PREFIX; // Taking metabox prefix		
 
 		// Taking variables
-		$gallery_imgs 				= isset( $_POST['wp_aas_img'] ) 						? array_map( 'intval', (array) $_POST['wp_aas_img'] ) 			: '';
+		$gallery_imgs				= isset( $_POST['wp_aas_img'] )							? array_map( 'intval', (array) $_POST['wp_aas_img'] )			: '';
 
 		// Getting Carousel Variables
 		$width						= isset( $_POST[$prefix.'width'] )						? wp_aas_clean_number( $_POST[$prefix.'width'] )				: '';
@@ -162,7 +162,6 @@ class Wp_Aas_Admin {
 		$shadow						= isset( $_POST[$prefix.'shadow'] )						? wp_aas_clean( $_POST[$prefix.'shadow'] )						: 'true';
 
 		// Style option update
-		
 		update_post_meta($post_id, $prefix.'gallery_id', $gallery_imgs);
 
 		// Updating Carousel settings 
@@ -201,8 +200,8 @@ class Wp_Aas_Admin {
 	 */
 	function wp_aas_posts_columns( $columns ) {
 
-		$new_columns['wp_aas_shortcode'] 	= esc_html__( 'Shortcode', 'accordion-and-accordion-slider' );
-		$new_columns['wp_aas_photos'] 		= esc_html__( 'Number of Photos', 'accordion-and-accordion-slider' );
+		$new_columns['wp_aas_shortcode']	= esc_html__( 'Shortcode', 'accordion-and-accordion-slider' );
+		$new_columns['wp_aas_photos']		= esc_html__( 'Number of Photos', 'accordion-and-accordion-slider' );
 
 		$columns = wp_aas_add_array( $columns, $new_columns, 1, true );
 
@@ -271,7 +270,7 @@ class Wp_Aas_Admin {
 			?>
 			<script type="text/javascript">
 				(function ($) {
-					$('.wpos-upgrade-pro').parent().attr( { target: '_blank', rel: 'noopener noreferrer' } );
+					$('.wp-aas-upgrade-pro').parent().attr( { target: '_blank', rel: 'noopener noreferrer' } );
 				})(jQuery);
 			</script>
 		<?php }

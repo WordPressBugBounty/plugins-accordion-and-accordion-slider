@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function aas_slider_shortcode( $atts, $content = null) {
-	
+
 	extract(shortcode_atts(array(
 							'id'	=> '',
 	), $atts, 'aas_slider'));
@@ -25,32 +25,32 @@ function aas_slider_shortcode( $atts, $content = null) {
 	$prefix = WP_AAS_META_PREFIX; // Metabox prefix
 
 	$visible_panels		= get_post_meta( $gallery_id, $prefix.'visible_panels', true );
-	$visible_panels 	= ! empty( $visible_panels )	? $visible_panels	: '4';
-	
+	$visible_panels		= ! empty( $visible_panels )	? $visible_panels	: '4';
+
 	$width				= get_post_meta( $gallery_id, $prefix.'width', true );
 	$width				= ! empty( $width )				? $width			: '900';	
-	
+
 	$image_size			= get_post_meta( $gallery_id, $prefix.'image_size', true );
 	$image_size			= ! empty( $image_size )		? $image_size		: 'large';
-	
+
 	$height				= get_post_meta( $gallery_id, $prefix.'height', true );
 	$height				= ! empty( $height )			? $height			: '300';
-	
+
 	$orientation		= get_post_meta( $gallery_id, $prefix.'orientation', true );
 	$orientation 		= ($orientation == 'horizontal')? 'horizontal'		: 'vertical';
-	
+
 	$panel_distance		= get_post_meta( $gallery_id, $prefix.'panel_distance', true );
 	$panel_distance		= ! empty( $panel_distance )	? $panel_distance	: '0';
-	
+
 	$max_openedaccordion_size	= get_post_meta( $gallery_id, $prefix.'max_openedaccordion_size', true );
 	$max_openedaccordion_size	= ! empty( $max_openedaccordion_size )	? $max_openedaccordion_size	: '80%';
-	
+
 	$open_panel_on 		= get_post_meta( $gallery_id, $prefix.'open_panel_on', true );
 	$open_panel_on 		= ($open_panel_on == 'hover')	? 'hover'	: 'click';
-	
+
 	$shadow 			= get_post_meta( $gallery_id, $prefix.'shadow', true );
 	$shadow 			= ($shadow == 'true')	? 'true'	: 'false';
-	
+
 	$autoplay			= get_post_meta( $gallery_id, $prefix.'autoplay', true );
 	$autoplay 			= ($autoplay == 'true')	? 'true'	: 'false';
 
