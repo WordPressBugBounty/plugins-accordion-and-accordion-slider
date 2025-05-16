@@ -1,9 +1,9 @@
 ﻿=== Accordion and Accordion Slider ===
-Contributors: essentialplugin, wponlinesupport
+Contributors: essentialplugin
 Tags: accordion image slider, horizontal and vertical accordion, responsive accordion carousel, deep linking, responsive slider  
 Requires at least: 4.0
 Tested up to: 6.8.1
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,9 @@ Accordion Slider is a fully responsive and touch-enabled WordPress plugin that c
 [youtube https://www.youtube.com/watch?v=cWnGlD7hwG4]
 
 == Changelog ==
+
+= 1.4.3 (16 May 2025) =
+* [*] Updated some URL's
 
 = 1.4.2 (12 May 2025) =
 * [*] Check compatibility to WordPress version 6.8

@@ -1,8 +1,8 @@
 /*!
  * WPOS Tab Slider Slider - v1.0
- * Homepage: https://www.wponlinesupport.com
+ * Homepage: https://www.essentialplugin.com
  * Author: WP Online Support
- * Author URL: https://www.wponlinesupport.com
+ * Author URL: https://www.essentialplugin.com
  */
 ! function(a, b) {
     "use strict";
