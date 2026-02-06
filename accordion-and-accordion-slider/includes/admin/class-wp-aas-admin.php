@@ -287,25 +287,22 @@ class Wp_Aas_Admin {
 		// Taking some defaults
 		$result				= array();
 		$result['success']	= 0;
-		$result['msg']		= esc_js( __('Sorry, Something happened wrong.', 'accordion-and-accordion-slider') );
-		$attachment_id		= ! empty( $_POST['attachment_id'] )	? wp_aas_clean( $_POST['attachment_id'] )	: '';
+		$result['msg']		= __('Sorry, Something happened wrong.', 'accordion-and-accordion-slider');
+		$attachment_id		= ! empty( $_POST['attachment_id'] )	? wp_aas_clean( $_POST['attachment_id'] )	: 0;
 		$nonce				= ! empty( $_POST['nonce'] )			? wp_aas_clean( $_POST['nonce'] )	: '';
 
-		if( ! empty( $attachment_id ) && wp_verify_nonce( $nonce, 'wp-aas-edit-attachment-data' ) ) {
+		if ( ! empty( $attachment_id ) && wp_verify_nonce( $nonce, 'wp-aas-edit-attachment-data' ) && current_user_can( 'edit_post', $attachment_id ) ) {
 
 			$attachment_post = get_post( $attachment_id );
 
-			if( ! empty( $attachment_post )) {
+			if ( ! empty( $attachment_post ) && 'attachment' === $attachment_post->post_type) {
 
 				ob_start();
-
-				// Popup Data File
-				include( WP_AAS_DIR . '/includes/admin/settings/wp-aas-img-popup-data.php' );
-
+				include WP_AAS_DIR . '/includes/admin/settings/wp-aas-img-popup-data.php'; // Popup Data File
 				$attachment_data = ob_get_clean();
 
 				$result['success']	= 1;
-				$result['msg']		= esc_js( __( 'Attachment Found.', 'accordion-and-accordion-slider' ) );
+				$result['msg']		= __( 'Attachment Found.', 'accordion-and-accordion-slider' );
 				$result['data']		= $attachment_data;
 			}
 		}
